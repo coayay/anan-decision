@@ -191,7 +191,7 @@ main { padding: 24px; padding-bottom: 100px; }
   <span>결정 진행 <b id="pgDone">0</b> / <span id="pgTotal">0</span> 품목</span>
   <span>선정 금액 <b id="pgAmount">₩ 0</b></span>
   <span id="pgWarn" class="warn"></span>
-  <span style="margin-left:auto;font-size:12px;color:var(--gray-400)">빌드 2026-08-25 21:15 · 선택은 이 브라우저에 자동 저장됩니다</span>
+  <span style="margin-left:auto;font-size:12px;color:var(--gray-400)">빌드 2026-08-25 21:21 · 선택은 이 브라우저에 자동 저장됩니다</span>
 </div>
 
 <nav class="nav-tabs" id="navTabs"></nav>
@@ -3462,8 +3462,7 @@ function exportCSV() {
   });
   rows.push(['','','','','','','합계', total, '']);
   const esc = v => `"${String(v).replace(/"/g, '""')}"`;
-  const csv = '﻿' + rows.map(r => r.map(esc).join(',')).join('
-');
+  const csv = '\ufeff' + rows.map(r => r.map(esc).join(',')).join('\r\n');
   download(`안안_비품선정_${stamp()}.csv`, csv, 'text/csv;charset=utf-8');
 }
 
